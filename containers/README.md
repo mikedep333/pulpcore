@@ -10,7 +10,7 @@ The base image can be built with the help of an Ansible script. To build the bas
 
 The image can be customized to include any number of plugins as a build argument:
 
-    ansible-playbook build.yaml -e '{"plugins": ["pulp_file", "pulp_ansible"]}'
+    ansible-playbook build.yaml -e '{"plugins": ["pulp_file", "pulp_ansible", "pulp_cookbook", "pulp_docker", "pulp_maven", "pulp_python"]}'
 
 ## Push Image to Registry
 
