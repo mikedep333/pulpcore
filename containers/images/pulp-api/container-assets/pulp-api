@@ -4,4 +4,4 @@
 
 scl enable rh-python36 'django-admin migrate --noinput'
 
-exec scl enable rh-python36 "gunicorn -b 0.0.0.0:8000 pulpcore.app.wsgi:application"
+exec scl enable rh-python36 "gunicorn -b 0.0.0.0:24817 pulpcore.app.wsgi:application"

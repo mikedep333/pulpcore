@@ -1,6 +1,6 @@
 # Pulp 3 Containers
 
-This directory contains assets and tooling for building Pulp 3 container images. The current image is an all-in-one image with different runtime scripts to assume each of the roles: pulp-core, pulp-worker and pulp-resource-manager.
+This directory contains assets and tooling for building Pulp 3 container images. The current image is an all-in-one image with different runtime scripts to assume each of the roles: pulp-api, pulp-content, pulp-worker and pulp-resource-manager.
 
 ## Build
 

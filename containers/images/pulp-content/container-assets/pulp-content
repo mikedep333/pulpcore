@@ -3,4 +3,4 @@
 /usr/bin/wait_on_postgres.py
 /usr/bin/wait_on_database_migrations.sh
 
-exec scl enable rh-python36 "gunicorn -b 0.0.0.0:8000 pulpcore.content:server"
+exec scl enable rh-python36 "gunicorn -b 0.0.0.0:24816 pulpcore.content:server"
