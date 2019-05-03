@@ -3,6 +3,7 @@ FROM centos:7
 ARG PLUGINS=""
 
 RUN echo "tsflags=nodocs" >> /etc/yum.conf && \
+		yum -y update && \
 		yum -y install epel-release centos-release-scl && \
 		yum -y install wget git rh-python36-python-pip && \
 		yum clean all
