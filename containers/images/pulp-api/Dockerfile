@@ -24,7 +24,8 @@ RUN scl enable rh-python36 "django-admin collectstatic --noinput"
 
 COPY container-assets/wait_on_postgres.py /usr/bin/wait_on_postgres.py
 COPY container-assets/wait_on_database_migrations.sh /usr/bin/wait_on_database_migrations.sh
+COPY container-assets/pulp-common-entrypoint.sh /pulp-common-entrypoint.sh
 COPY container-assets/pulp-api /usr/bin/pulp-api
 
-
+ENTRYPOINT ["/pulp-common-entrypoint.sh"]
 CMD ["/usr/bin/pulp-api"]
