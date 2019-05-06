@@ -1,7 +1,8 @@
 #!/bin/bash
 
-/usr/bin/wait_on_postgres.py
-
-scl enable rh-python36 'django-admin migrate --noinput'
+#TODO: Determine list of installed plugins by inspecting image contents
+scl enable rh-python36 "django-admin makemigrations file ansible cookbook docker maven python"
+scl enable rh-python36 "django-admin migrate --noinput"
+scl enable rh-python36 "django-admin migrate auth --noinput"
 
 exec scl enable rh-python36 "gunicorn -b 0.0.0.0:24817 pulpcore.app.wsgi:application"
