@@ -35,5 +35,5 @@ COPY container-assets/wait_on_database_migrations.sh /usr/bin/wait_on_database_m
 COPY container-assets/pulp-common-entrypoint.sh /pulp-common-entrypoint.sh
 COPY container-assets/pulp-api /usr/bin/pulp-api
 
-ENTRYPOINT ["/pulp-common-entrypoint.sh"]
+ENTRYPOINT ["/pulp-api-entrypoint.sh"]
 CMD ["/usr/bin/pulp-api"]
