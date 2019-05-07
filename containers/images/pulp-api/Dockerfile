@@ -30,6 +30,16 @@ RUN scl enable rh-python36 'pip install $PLUGINS'
 
 RUN scl enable rh-python36 "django-admin collectstatic --noinput"
 
+RUN mkdir -p /opt/rh/rh-python36/root/usr/lib/python3.6/site-packages/pulpcore/app/migrations
+RUN mkdir -p /opt/rh/rh-python36/root/usr/lib/python3.6/site-packages/pulpcore/app/migrations
+RUN mkdir -p /opt/rh/rh-python36/root/usr/lib/python3.6/site-packages/pulp_file/app/migrations
+RUN mkdir -p /opt/rh/rh-python36/root/usr/lib/python3.6/site-packages/pulp_ansible/app/migrations
+RUN mkdir -p /opt/rh/rh-python36/root/usr/lib/python3.6/site-packages/pulp_cookbook/app/migrations
+RUN mkdir -p /opt/rh/rh-python36/root/usr/lib/python3.6/site-packages/pulp_docker/app/migrations
+RUN mkdir -p /opt/rh/rh-python36/root/usr/lib/python3.6/site-packages/pulp_maven/app/migrations
+RUN mkdir -p /opt/rh/rh-python36/root/usr/lib/python3.6/site-packages/pulp_python/app/migrations
+RUN scl enable rh-python36 "django-admin makemigrations file ansible cookbook docker maven python"
+
 COPY container-assets/wait_on_postgres.py /usr/bin/wait_on_postgres.py
 COPY container-assets/wait_on_database_migrations.sh /usr/bin/wait_on_database_migrations.sh
 COPY container-assets/pulp-common-entrypoint.sh /pulp-common-entrypoint.sh
