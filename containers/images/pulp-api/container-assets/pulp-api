@@ -7,4 +7,8 @@ scl enable rh-python36 "django-admin makemigrations file ansible cookbook docker
 scl enable rh-python36 "django-admin migrate --noinput"
 scl enable rh-python36 "django-admin migrate auth --noinput"
 
+if [ -n "${PULP_ADMIN_PASSWORD}" ]; then
+    scl enable rh-python36 "django-admin reset-admin-password --password '${PULP_ADMIN_PASSWORD}'"
+fi
+
 exec scl enable rh-python36 "gunicorn -b 0.0.0.0:24817 pulpcore.app.wsgi:application"
