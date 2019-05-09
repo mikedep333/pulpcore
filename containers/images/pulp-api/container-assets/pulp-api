@@ -2,6 +2,10 @@
 
 /usr/bin/wait_on_postgres.py
 
+# Generating /var/lib/pulp/static at runtime rather than at container build time
+# facilitates all of /var/lib/pulp being a separate volume.
+scl enable rh-python36 "django-admin collectstatic --noinput"
+
 #TODO: Determine list of installed plugins by inspecting image contents
 scl enable rh-python36 "django-admin makemigrations file ansible cookbook docker maven python"
 scl enable rh-python36 "django-admin migrate --noinput"

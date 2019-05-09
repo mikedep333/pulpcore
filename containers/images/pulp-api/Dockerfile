@@ -28,8 +28,6 @@ RUN scl enable rh-python36 'pip install git+https://github.com/pulp/pulpcore.git
 RUN scl enable rh-python36 'pip install git+https://github.com/pulp/pulpcore.git#egg=pulpcore[mysql]'
 RUN scl enable rh-python36 'pip install $PLUGINS'
 
-RUN scl enable rh-python36 "django-admin collectstatic --noinput"
-
 RUN mkdir -p /opt/rh/rh-python36/root/usr/lib/python3.6/site-packages/pulpcore/app/migrations
 RUN mkdir -p /opt/rh/rh-python36/root/usr/lib/python3.6/site-packages/pulpcore/app/migrations
 RUN mkdir -p /opt/rh/rh-python36/root/usr/lib/python3.6/site-packages/pulp_file/app/migrations
