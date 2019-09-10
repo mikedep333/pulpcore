@@ -8,9 +8,8 @@ django-admin collectstatic --noinput
 
 # Get list of installed plugins via pip
 # Assumes they are all named like "pulp-file" -> "file", with no 2nd dash.
-# (Was previously needed when we ran `django-admin makemigrations`)
-# PLUGINS=$(pip list | awk -F '[[:space:]]+|[-]' '/pulp-/{printf $2 " " }')
-
+PLUGINS=$(pip list | awk -F '[[:space:]]+|[-]' '/pulp-/{printf $2 " " }')
+django-admin makemigrations $PLUGINS
 django-admin migrate --noinput
 django-admin migrate auth --noinput
 
