@@ -2,7 +2,7 @@
 images:
   - pulp_stable_plugins_stable:
       image_name: pulp
-      tag: 3.0.0rc5-with-cookbook
+      tag: 3.0.0rc5
       plugins:
         # Needs to be released for default_related_name
         - pulp-certguard
